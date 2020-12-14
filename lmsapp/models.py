@@ -10,7 +10,7 @@ class Book(models.Model):
         ('education', 'Education'),
         ('entertainment', 'Entertainment'),
         ('comics', 'Comics'),
-        ('biography', 'Biographie'),
+        ('biography', 'Biography'),
         ('history', 'History'),
     ]
     name = models.CharField(max_length=30)
