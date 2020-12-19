@@ -2,15 +2,17 @@
 {% load crispy_forms_tags %}
 {% block start %}
 
- <div class="content-section col-md-8 col-md-offset-2">
-    <table>
+ <div class="container">
+    <table class="table table-dark table-striped">
         <tr>
-            <th>Book Number</th>
+            <th>Book Id</th>
             <th>Book Name</th>
             <th>Author</th>
             <th>category</th>
             <th>Price</th>
             <th>Edition</th>
+            <th>Actions</th>
+            <th>Others</th>
         </tr>
         {% for item in books %}
         <tr>
@@ -20,6 +22,8 @@
             <td>{{ item.category }}</td>
             <td>{{ item.price }}</td>
             <td>{{ item.edition }}</td>
+            <td> <a href="{% url 'update_book' id=item.id %}"> Update </a>, <a href="{% url 'delete_book' id=item.id %}"> Delete </a></td>
+            <td> <a href=""> Download</a>, <a href=""> View</a> <td>
         </tr>
         {% endfor %}
     </table>

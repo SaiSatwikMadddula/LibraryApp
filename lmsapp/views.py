@@ -60,3 +60,33 @@ def create_book(request):
 
     book_form = BookForm()
     return render(request, 'create_book.html', {'form': book_form, 'title': 'Create Book'})
+
+
+@login_required()
+def update_book(request, id):
+    book = Book.objects.get(id=id)
+    form = BookForm(request.POST or None, instance=book)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, f' Book Updated!!')
+            return redirect('index')
+        else:
+            messages.info(request, f'Something went wrong in book creation')
+
+    return render(request, 'update_book.html',{'form': form, 'title': 'Update Book'})
+
+
+@login_required()
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    form = BookForm(request.POST or None, instance=book)
+    if request.method == 'POST':
+        if form.is_valid():
+            book.delete()
+            messages.success(request, f' Book deleted!!')
+            return redirect('index')
+        else:
+            messages.info(request, f'Something went wrong in book creation')
+
+    return render(request, 'delete_book.html',{'form': form,'title':'Update Book'})
