@@ -89,9 +89,11 @@
     {% block start %}
     {% if user.is_authenticated %}
     <center><h1>Welcome to Library Management System</h1></center>
-    <li><a href="{% url "create_book" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Book</a></li>
+    <p><img height="45%" width="100%" src="/media/book2.jpg"/></p>
+    <li><a href="{% url "create_book" %}">Create Book</a></li>
     <br>
-    <li><a href="{% url "view_books" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; view Books</a></li>
+    <li><a href="{% url "view_books" %}">View Books</a></li>
+    <br>
     {% else %}
     <p><img height="45%" width="100%" src="/media/book1.jpg"/></p>
     {% endif %}
