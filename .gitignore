@@ -1,0 +1,5 @@
+/.idea
+/lmsapp/__pycache
+/migrations
+/media
+/libraryManagementSystem/__pycache__
